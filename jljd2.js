@@ -18,7 +18,7 @@
 // Response status can also be optional changed by using $done({body: modifiedBody, headers: modifiedHeaders, status: modifiedStatus}), the modifiedStatus should be like "HTTP/1.1 200 OK"
 
 var body = $response.body;
-// var obj = JSON.parse(body);
+var obj = JSON.parse(body);
 
 
 
@@ -198,7 +198,7 @@ function encrypt(json) {
 init();
 
 // let response_data = obj;
-let data = decrypt(body);
+let data = decrypt(obj.data);
 
 // console.log("original data: ", response_data.data);
 //console.log("decrypt data: ", data);

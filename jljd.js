@@ -195,7 +195,7 @@ function encrypt(json) {
     // console.log("decrypted data: ", decrypted.toString(CryptoJS.enc.Utf8));
     return output;
 }
-
+init();
 
 // let response_data = obj;
 let data = decrypt(body);

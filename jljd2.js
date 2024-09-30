@@ -231,7 +231,7 @@ obj.data = encrypt(data);
 
 // Convert the modified object back to JSON string
 
-body = JSON.stringify(response_data);
+body = JSON.stringify(obj);
 
 // console.log(body);
 

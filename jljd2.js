@@ -197,8 +197,8 @@ function encrypt(json) {
 }
 init();
 
-// let response_data = obj;
-let data = decrypt(obj.data);
+let response_data = obj;
+let data = decrypt(response_data.data);
 
 // console.log("original data: ", response_data.data);
 //console.log("decrypt data: ", data);
@@ -222,7 +222,7 @@ data.aVipExpireTime="2099-01-01T00:00:00Z";
 data.code=200;
 data.watchCount=99;
 data.playable=true;
-data = encrypt(data)
+response_data.data = encrypt(data)
 
 // console.log("encrypt modified data: ", e_data);
 // let de_e_data = decrypt(e_data);
@@ -230,7 +230,7 @@ data = encrypt(data)
 
 // Convert the modified object back to JSON string
 
-body = JSON.stringify(data);
+body = JSON.stringify(response_data);
 
 // console.log(body);
 

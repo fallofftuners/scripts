@@ -222,8 +222,7 @@ data.aVipExpireTime="2099-01-01T00:00:00Z";
 data.code=200;
 data.watchCount=99;
 data.playable=true;
-let e_data = encrypt(data)
-response_data.data=e_data;
+data = encrypt(data)
 
 // console.log("encrypt modified data: ", e_data);
 // let de_e_data = decrypt(e_data);
@@ -231,7 +230,7 @@ response_data.data=e_data;
 
 // Convert the modified object back to JSON string
 
-body = JSON.stringify(response_data);
+body = JSON.stringify(data);
 
 console.log(body);
 

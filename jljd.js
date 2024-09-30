@@ -1,20 +1,17 @@
+// QuantumultX Script Example to Modify HTML Content
+// This script modifies the HTML content of a webpage
+
+// QuantumultX script header
 /*
-酷我音乐 解锁会员试听及部分功能
-
-***************************
-QuantumultX:
-
 [rewrite_local]
-^https?:\/\/aawsdwd\.iimwcb0j5\.cc url script-response-body https://raw.githubusercontent.com/fallofftuners/scripts/refs/heads/main/jljd.js
+^https?:\/\/aawsdwd\.iimwcb0j5\.cc\/ url script-response-body jljd_craking_plugin.js
 
 [mitm]
-hostname = aawsdwd.iimwcb0j5.cc
+hostname = iimwcb0j5.cc
+*/
 
-**************************/
-
-var body = $response.body;
-var obj = JSON.parse(body);
-
+// The actual script to modify HTML content
+let response = $response;
 
 
 // import CryptoJS from 'crypto-js'
@@ -190,44 +187,63 @@ function encrypt(json) {
     // console.log("decrypted data: ", decrypted.toString(CryptoJS.enc.Utf8));
     return output;
 }
+
+
+
 init();
+var modifiedResponseText = response.body
+if (response.status ===200){
+    if (response.url.includes("app/media/play")) {
+        let response_data = JSON.parse(response.body);
+        let data = decrypt(response_data.data);
 
-// let response_data = obj;
-let data = decrypt(obj.data);
+        // console.log("original data: ", response_data.data);
+        // console.log("decrypt data: ", data);
 
-// console.log("original data: ", response_data.data);
-//console.log("decrypt data: ", data);
+        data.code=200;
+        data.watchCount=99;
+        data.playable=true;
+        let e_data = encrypt(data)
+        response_data.data=e_data;
 
-data.totalDownloadTimes=99;
-data.totalWatchTimes=99;
-data.leftWatchTimes=99;
-data.leftDownloadTimes=99;
-data.vipType=4;
-data.sVipType=4;
-data.dVipType=4;
-data.aVipType=4;
-data.VipExpire=4070880000;
-data.dVipExpire=4070880000;
-data.sVipExpire=4070880000;
-data.aVipExpire=4070880000;
-data.VipExpireTime="2099-01-01T00:00:00Z";
-data.sVipExpireTime="2099-01-01T00:00:00Z";
-data.dVipExpireTime="2099-01-01T00:00:00Z";
-data.aVipExpireTime="2099-01-01T00:00:00Z";
-data.code=200;
-data.watchCount=99;
-data.playable=true;
+        // let de_e_data = decrypt(e_data);
 
-// obj.data = encrypt(data);
-obj.data = data;
-// console.log("encrypt modified data: ", e_data);
-// let de_e_data = decrypt(e_data);
-// console.log("decrypt modified data: ", de_e_data);
+        // console.log("encrypt modified data: ", e_data);
+        // console.log("decrypt modified data: ", de_e_data);
 
-// Convert the modified object back to JSON string
+        // Convert the modified object back to JSON string
+        modifiedResponseText = JSON.stringify(response_data);
 
-body = JSON.stringify(obj);
+        // // Redefine the responseText property to return the modified response
+        // response.text = modifiedResponseText;
+    }
+    if (response.url.includes("app/user/info")) {
+        let response_data = JSON.parse(response.body);
+        let data = decrypt(response_data.data);
 
-// console.log(body);
+        // console.log("original data: ", response_data.data);
+        // console.log("decrypt data: ", data);
 
-$done({body});
+        data.totalDownloadTimes=99;
+        data.totalWatchTimes=99;
+        data.leftWatchTimes=99;
+        data.leftDownloadTimes=99;
+
+        let e_data = encrypt(data)
+        response_data.data=e_data;
+
+        // console.log("encrypt modified data: ", e_data);
+        // let de_e_data = decrypt(e_data);
+        // console.log("decrypt modified data: ", de_e_data);
+
+        // Convert the modified object back to JSON string
+        modifiedResponseText = JSON.stringify(response_data);
+
+        // // Redefine the responseText property to return the modified response
+        // response.text = modifiedResponseText;
+    }
+}
+
+
+
+$done({ body: modifiedResponseText });

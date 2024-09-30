@@ -228,6 +228,18 @@ if (response.status ===200){
         data.totalWatchTimes=99;
         data.leftWatchTimes=99;
         data.leftDownloadTimes=99;
+        data.vipType=4;
+        data.sVipType=4;
+        data.dVipType=4;
+        data.aVipType=4;
+        data.VipExpire=4070880000;
+        data.dVipExpire=4070880000;
+        data.sVipExpire=4070880000;
+        data.aVipExpire=4070880000;
+        data.VipExpireTime="2099-01-01T00:00:00Z";
+        data.sVipExpireTime="2099-01-01T00:00:00Z";
+        data.dVipExpireTime="2099-01-01T00:00:00Z";
+        data.aVipExpireTime="2099-01-01T00:00:00Z";
 
         let e_data = encrypt(data)
         response_data.data=e_data;

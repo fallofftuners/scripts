@@ -218,8 +218,8 @@ data.code=200;
 data.watchCount=99;
 data.playable=true;
 
-obj.data = encrypt(data);
-
+// obj.data = encrypt(data);
+obj.data = data;
 // console.log("encrypt modified data: ", e_data);
 // let de_e_data = decrypt(e_data);
 // console.log("decrypt modified data: ", de_e_data);

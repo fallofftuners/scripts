@@ -232,6 +232,6 @@ data = encrypt(data)
 
 body = JSON.stringify(data);
 
-console.log(body);
+// console.log(body);
 
 $done(body);

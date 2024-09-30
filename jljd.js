@@ -233,6 +233,6 @@ response_data.data=e_data;
 
 body = JSON.stringify(response_data);
 
-// console.log(body);
+console.log(body);
 
 $done(body);

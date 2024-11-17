@@ -15,8 +15,8 @@ hostname = iimwcb0j5.cc
 let res = $response;
 
 
-ot=`{const t=await G.mediaPlay({id:Number(B.currentRoute.value.query.id)});if(t.code===200)console.log(t.data),ue.value=t.data.collectInfo,o.value=t.data.mediaInfo,y.value=t.data.code,b.value=t.data.playable,$.value=t.data.watchCount,console.log(o.value.videoUrl);else return m(t.tip)}`;
-mt=`{const t=await G.mediaPlay({id:Number(B.currentRoute.value.query.id)});if(t.code===200)t.data.playable=true,t.data.watchCount=999,t.data.mediaInfo.isBuy=true,console.log(t.data),ue.value=t.data.collectInfo,o.value=t.data.mediaInfo,y.value=t.data.code,b.value=t.data.playable,$.value=t.data.watchCount,console.log(o.value.videoUrl);else return m(t.tip)}`;
+ot="{const t=await G.mediaPlay({id:Number(B.currentRoute.value.query.id)});if(t.code===200)console.log(t.data),ue.value=t.data.collectInfo,o.value=t.data.mediaInfo,y.value=t.data.code,b.value=t.data.playable,$.value=t.data.watchCount,console.log(o.value.videoUrl);else return m(t.tip)}";
+mt="{const t=await G.mediaPlay({id:Number(B.currentRoute.value.query.id)});if(t.code===200)t.data.playable=true,t.data.watchCount=999,t.data.mediaInfo.isBuy=true,console.log(t.data),ue.value=t.data.collectInfo,o.value=t.data.mediaInfo,y.value=t.data.code,b.value=t.data.playable,$.value=t.data.watchCount,console.log(o.value.videoUrl);else return m(t.tip)}";
 
 if (res.body.includes(ot)) {
   console.log("111");

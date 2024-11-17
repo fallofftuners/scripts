@@ -14,8 +14,8 @@ hostname = iimwcb0j5.cc
 let res = $response;
 
 
-
-console.log(res);
+console.log(res.status);
+console.log(res.body);
 if (res.status ===200){
 body = res.body;
 res.body = res.body.replace(ot,mt);
@@ -23,4 +23,4 @@ res.body = res.body.replace(ot,mt);
 
 
 
-$done({ body: res.body });
+$done(res);
